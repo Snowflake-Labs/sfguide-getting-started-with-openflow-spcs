@@ -65,18 +65,7 @@ DROP ROLE IF EXISTS QUICKSTART_ROLE;
 -- the Openflow core setup (not recommended if you plan to use Openflow again)
 
 /*
--- Remove network rule from account network policy (if you added it)
--- Replace <YOUR_ACCOUNT_LEVEL_NETWORK_POLICY_NAME> with your actual policy name
-ALTER NETWORK POLICY <YOUR_ACCOUNT_LEVEL_NETWORK_POLICY_NAME> 
-  DROP ALLOWED_NETWORK_RULE_LIST = (snowflake_deployment_network_rule);
-
--- Switch to OPENFLOW_ADMIN role to drop the network rule
-USE ROLE OPENFLOW_ADMIN;
-
--- Drop Snowflake deployment network rule
-DROP NETWORK RULE IF EXISTS snowflake_deployment_network_rule;
-
--- Switch back to ACCOUNTADMIN to remove the admin role
+-- Switch to ACCOUNTADMIN to remove the admin role
 USE ROLE ACCOUNTADMIN;
 
 -- Drop Openflow admin role
