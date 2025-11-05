@@ -1,6 +1,6 @@
 # Getting Started with Snowflake Openflow SPCS
 
-This repository contains the code for the [Snowflake Openflow SPCS quickstart](https://quickstarts.snowflake.com/guide/getting_started_with_openflow_spcs/index.html) companion assets.
+This repository contains the code for the [Snowflake Openflow SPCS quickstart](https://quickstarts.snowflake.com/guide/getting_started_with_Openflow_spcs/index.html) companion assets.
 
 ## License
 
