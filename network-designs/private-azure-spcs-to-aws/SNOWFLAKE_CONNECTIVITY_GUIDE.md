@@ -270,8 +270,8 @@ SELECT SYSTEM$PROVISION_PRIVATELINK_ENDPOINT(
 **Example:**
 ```sql
 SELECT SYSTEM$PROVISION_PRIVATELINK_ENDPOINT(
-  '/subscriptions/13c91033-8b4e-40f7-9031-16c8f69233e3/resourceGroups/rg-privatelink-q3y5j6/providers/Microsoft.Network/privateLinkServices/pls-service-q3y5j6',
-  'pls-service-q3y5j6.4e1a9425-b6ab-4ee8-b977-d8dfa3ca6770.westeurope.azure.privatelinkservice'
+  '/subscriptions/[...]/resourceGroups/rg-privatelink-q3y5j6/providers/Microsoft.Network/privateLinkServices/pls-service-q3y5j6',
+  'pls-service-q3y5j6.[...].westeurope.azure.privatelinkservice'
 );
 ```
 
@@ -292,10 +292,10 @@ CREATE OR REPLACE NETWORK RULE <database>.<schema>.on_prem_mysql_rule
 
 **Example:**
 ```sql
-CREATE OR REPLACE NETWORK RULE openflow.networking.on_prem_mysql_rule
+CREATE OR REPLACE NETWORK RULE <database>.<schema>.on_prem_mysql_rule
   MODE = EGRESS
   TYPE = PRIVATE_HOST_PORT
-  VALUE_LIST = ('pls-service-q3y5j6.4e1a9425-b6ab-4ee8-b977-d8dfa3ca6770.westeurope.azure.privatelinkservice:3306');
+  VALUE_LIST = ('pls-service-q3y5j6.[...].westeurope.azure.privatelinkservice:3306');
 ```
 
 **Important Notes:**
@@ -314,13 +314,6 @@ CREATE OR REPLACE EXTERNAL ACCESS INTEGRATION on_prem_mysql_eai
   COMMENT = 'External Access Integration for on-prem access to MySQL';
 ```
 
-**Example:**
-```sql
-CREATE OR REPLACE EXTERNAL ACCESS INTEGRATION on_prem_mysql_eai
-  ALLOWED_NETWORK_RULES = (openflow.networking.on_prem_mysql_rule)
-  ENABLED = true
-  COMMENT = 'External Access Integration for on-prem access to MySQL';
-```
 
 #### Step 6.4: Grant Permissions
 
