@@ -30,19 +30,7 @@ SET id = CURRENT_USER();
 GRANT ROLE OPENFLOW_ADMIN TO USER IDENTIFIER($id);
 
 
--- Step 2: BCR Bundle Status
--- ----------------------------------------------------------------------------
--- Check if BCR Bundle 2025_06 is already enabled
-
-CALL SYSTEM$BEHAVIOR_CHANGE_BUNDLE_STATUS('2025_06');
-
--- If the result shows 'DISABLED', uncomment and run the following command:
-/*
-CALL SYSTEM$ENABLE_BEHAVIOR_CHANGE_BUNDLE('2025_06');
-*/
-
-
--- Step 3: Verify Setup
+-- Step 2: Verify Setup
 -- ----------------------------------------------------------------------------
 -- Verify role exists
 SHOW ROLES LIKE 'OPENFLOW_ADMIN';
